@@ -1,0 +1,29 @@
+# mermaid-diagram
+```mermaid
+sequenceDiagram
+    participant Attacker as Attacker
+    participant BotNet as Botnet
+    participant WebServer as WebServer
+    participant Firewall as Firewall
+
+Attacker->>BotNet:Sends BotNet to attack WebServer.
+Note over Attacker,BotNet: Telling BotNet to influx the server with false traffic
+BotNet->>Webserver: Sends large volume of traffic to disrupt WebServer.
+WebServer->> Firewall: Notify with Alerts of large volume of traffic. 
+Note over WebServer,Firewall: WebServer records the traffic and notify it security of the possible breach
+Firewall-->> WebServer: Attempts to filter out malicious traffic and blocking suspicious IP connections.
+
+‎```
+
+## Steps of the Sequence diagram:
+1. The attacker can send out botnets, and command them to target a specific server with traffic. 2. the attacker unleashes a large amount of traffic into the server causing it to be overwhelmed.
+3. WebServer then sends out alerts of high traffic to the Firewall.
+4. Firewall monitors incoming and outgoing network traffic, attempting to filter out malicious traffic and potentially mitigating a DDoS attack by blocking suspicious connection.
+
+## How each participant contributes to the scenario:
+* Attacker: The attacker contributes by attempting to access, influence, delete, or corrupt data that is located in the Target server. The attacker does this by creating a botnet which is used to overwhelm  WebServer.
+* Botnet: The Botnets contributes by being controlled by the attacker commands allowing the attacker to control the actions of a group of devices from one remote location. The Botnets are used to overwhelm WebServer.
+* Firewall: The Firewall contributes by providing a defense measure. The Firewall recieves all these requests from the Botnet and blocks the requests from reaching WebServer.
+* WebServer: WebServer contributes by sending reports of high traffic to the Firewall during an attack.
+
+**Defense measures** are activated when the requests are recieved by the Firewall. The firewall decides which requests are safe to be sent to the WebServer and which requests to block from WebServer.
